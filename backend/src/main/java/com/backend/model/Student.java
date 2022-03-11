@@ -29,7 +29,12 @@ public class Student extends BaseEntity {
     private String password;
 
     @ManyToMany(mappedBy = "studentList")
-    private List<LessonRiver> lessonRivers = new ArrayList<>();
+    private List<LessonRiver> lessonRiverList = new ArrayList<>();
 
+    @ManyToMany(mappedBy = "studentList")
+    private List<LessonIndoorErg> lessonIndoorErgList = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "studentList")
+    private List<LessonIndoorPool> lessonIndoorPoolList = new ArrayList<>();
 
 }

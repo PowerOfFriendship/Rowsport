@@ -1,6 +1,5 @@
 package com.backend.model;
 
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,25 +12,16 @@ import java.util.List;
 
 @Entity
 @Getter @Setter
-public class LessonRiver extends Lesson {
+public class LessonIndoorErg extends Lesson {
 
-    private int singleScullCapacity;
-    private int doubleScullCapacity;
-    private int quadScullCapacity;
-    private int eightCapacity;
-
-    private int singleScullEnrolled;
-    private int doubleScullEnrolled;
-    private int quadScullEnrolled;
-    private int eightEnrolled;
+    private int enrolledNum;
 
     @ManyToMany
     @JoinTable(
-            name = "PERSISTENCE_LESSON_RIVER_STUDENT",
-            joinColumns = @JoinColumn(name = "LESSON_RIVER_LIST_ID", referencedColumnName = "ID"),
+            name = "PERSISTENCE_LESSON_INDOOR_ERG_STUDENT",
+            joinColumns = @JoinColumn(name = "LESSON_INDOOR_ERG_LIST_ID", referencedColumnName = "ID"),
             inverseJoinColumns = @JoinColumn(name = "STUDENT_ID", referencedColumnName = "ID")
     )
     private List<Student> studentList = new ArrayList<>();
-
 
 }
