@@ -37,4 +37,7 @@ public class Student extends BaseEntity {
     @ManyToMany(mappedBy = "studentList")
     private List<LessonIndoorPool> lessonIndoorPoolList = new ArrayList<>();
 
+    @ManyToMany(mappedBy = "studentList")
+    private List<LessonBootcamp> lessonBootcampList = new ArrayList<>();
+
 }
