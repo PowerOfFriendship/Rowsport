@@ -1,25 +1,16 @@
 package com.backend.service;
 
-import com.backend.model.role.Student;
-import com.backend.model.User;
-import com.backend.repository.UserRepository;
+import com.backend.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class LessonBootcampService {
 
-    private final UserRepository userRepository;
+    private final StudentRepository studentRepository;
 
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
-    }
+    // TODO: 25.3.2022 implement logic
 
-    public void addStudent(Student student) {
-        userRepository.save(student);
-    }
 
 }

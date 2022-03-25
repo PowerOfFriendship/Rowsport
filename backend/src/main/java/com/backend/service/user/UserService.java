@@ -1,8 +1,7 @@
 package com.backend.service.user;
 
 import com.backend.dto.UserRegistrationDTO;
-import com.backend.model.role.Admin;
-import com.backend.model.role.Student;
+import com.backend.model.User;
 import com.backend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -40,23 +39,13 @@ public class UserService {
         return userRepository.findByEmail(email).isEmpty();
     }
 
-    private Student saveStudent(UserRegistrationDTO userDTO) {
-        Student student = new Student();
-        student.setUsername(userDTO.getUsername());
-        student.setEmail(userDTO.getEmail());
-        student.setPassword(BCrypt.hashpw(userDTO.getPassword(), BCrypt.gensalt(10)));
-        userRepository.save(student);
-        return student;
-    }
-
-    private Admin saveAdmin(UserRegistrationDTO userDTO) {
-        Admin admin = new Admin();
-        admin.setUsername(userDTO.getUsername());
-        admin.setEmail(userDTO.getEmail());
-        admin.setPassword(BCrypt.hashpw(userDTO.getPassword(), BCrypt.gensalt(10)));
-        admin.setActive(true);
-        userRepository.save(admin);
-        return admin;
+    private User saveUser(UserRegistrationDTO userDTO) {
+        User user = new User();
+        user.setUsername(userDTO.getUsername());
+        user.setEmail(userDTO.getEmail());
+        user.setPassword(BCrypt.hashpw(userDTO.getPassword(), BCrypt.gensalt(10)));
+        userRepository.save(user);
+        return user;
     }
 
 }

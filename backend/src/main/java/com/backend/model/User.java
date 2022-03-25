@@ -9,12 +9,16 @@ import javax.persistence.Entity;
 @Getter @Setter
 public class User extends BaseEntity {
 
-    private String username;
-    private String name;
-    private String surname;
-    private String telephone;
+    protected String username;
+    protected String name;
+    protected String surname;
+    protected String telephone;
 
-    private String email;
-    private String password;
+    protected String email;
+    protected String password;
+    protected boolean isAdmin;
+
+
 
 }
+
