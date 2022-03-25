@@ -8,9 +8,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter @Setter
-public class UserLoginDataDTO {
-
-    private String username;
-    private String password;
-
+public class StatusDTO {
+    private String status;
 }

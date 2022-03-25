@@ -1,7 +1,7 @@
 package com.backend.service.user;
 
 import com.backend.dto.SuccessfulLoginDTO;
-import com.backend.dto.UserLoginDataDTO;
+import com.backend.dto.user.UserLoginDataDTO;
 import com.backend.exception.login.InvalidCredentialsException;
 import com.backend.exception.login.UserCredentialsEmptyException;
 import com.backend.exception.registration.PasswordTooShortException;

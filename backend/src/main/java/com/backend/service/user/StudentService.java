@@ -1,6 +1,6 @@
 package com.backend.service.user;
 
-import com.backend.dto.UserRegistrationDTO;
+import com.backend.dto.user.UserRegistrationDTO;
 import com.backend.model.role.Student;
 import com.backend.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;

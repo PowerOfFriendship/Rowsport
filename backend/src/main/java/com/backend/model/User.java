@@ -16,8 +16,9 @@ public class User extends BaseEntity {
 
     private String email;
     private String password;
-    private boolean isAdmin;
-    private boolean isSuperadmin;
+
+    private boolean isAdmin = false;
+    private boolean isSuperadmin = false;
 
 }
 
