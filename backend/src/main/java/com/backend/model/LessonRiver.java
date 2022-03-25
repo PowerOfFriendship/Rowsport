@@ -2,6 +2,7 @@ package com.backend.model;
 
 
 import com.backend.model.role.Student;
+import com.backend.model.role.Teacher;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -33,6 +34,15 @@ public class LessonRiver extends Lesson {
             inverseJoinColumns = @JoinColumn(name = "STUDENT_ID", referencedColumnName = "ID")
     )
     private List<Student> studentList = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "PERSISTENCE_LESSON_RIVER_STUDENT",
+            joinColumns = @JoinColumn(name = "LESSON_RIVER_LIST_ID", referencedColumnName = "ID"),
+            inverseJoinColumns = @JoinColumn(name = "STUDENT_ID", referencedColumnName = "ID")
+    )
+    private List<Teacher> teacherList = new ArrayList<>();
+
 
 
 }

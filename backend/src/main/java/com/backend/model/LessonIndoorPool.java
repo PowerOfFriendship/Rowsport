@@ -1,6 +1,7 @@
 package com.backend.model;
 
 import com.backend.model.role.Student;
+import com.backend.model.role.Teacher;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,5 +25,13 @@ public class LessonIndoorPool extends Lesson {
             inverseJoinColumns = @JoinColumn(name = "STUDENT_ID", referencedColumnName = "ID")
     )
     private List<Student> studentList = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "PERSISTENCE_LESSON_INDOOR_POOL_STUDENT",
+            joinColumns = @JoinColumn(name = "LESSON_INDOOR_POOL_LIST_ID", referencedColumnName = "ID"),
+            inverseJoinColumns = @JoinColumn(name = "STUDENT_ID", referencedColumnName = "ID")
+    )
+    private List<Teacher> teacherList = new ArrayList<>();
 
 }
