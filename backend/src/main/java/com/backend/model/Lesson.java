@@ -11,6 +11,8 @@ import java.time.LocalDateTime;
 public abstract class Lesson extends BaseEntity{
 
     protected int capacityMax;
-    protected LocalDateTime dateTime;
+    protected LocalDateTime dateTimeStart;
+    protected LocalDateTime dateTimeEnd;
+
 
 }

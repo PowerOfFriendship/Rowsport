@@ -1,5 +1,6 @@
 package com.backend.model;
 
+import com.backend.model.role.Student;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,6 +14,8 @@ import java.util.List;
 @Entity
 @Getter @Setter
 public class LessonBootcamp extends Lesson {
+
+    private int enrolledNum;
 
     @ManyToMany
     @JoinTable(

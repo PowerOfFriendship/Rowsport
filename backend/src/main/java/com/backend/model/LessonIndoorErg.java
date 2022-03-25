@@ -1,5 +1,6 @@
 package com.backend.model;
 
+import com.backend.model.role.Student;
 import lombok.Getter;
 import lombok.Setter;
 
