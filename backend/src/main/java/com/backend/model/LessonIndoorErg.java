@@ -28,9 +28,9 @@ public class LessonIndoorErg extends Lesson {
 
     @ManyToMany
     @JoinTable(
-            name = "PERSISTENCE_LESSON_INDOOR_ERG_STUDENT",
+            name = "PERSISTENCE_LESSON_INDOOR_ERG_TEACHER",
             joinColumns = @JoinColumn(name = "LESSON_INDOOR_ERG_LIST_ID", referencedColumnName = "ID"),
-            inverseJoinColumns = @JoinColumn(name = "STUDENT_ID", referencedColumnName = "ID")
+            inverseJoinColumns = @JoinColumn(name = "TEACHER_ID", referencedColumnName = "ID")
     )
     private List<Teacher> teacherList = new ArrayList<>();
 

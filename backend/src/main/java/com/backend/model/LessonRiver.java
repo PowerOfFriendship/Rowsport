@@ -37,9 +37,9 @@ public class LessonRiver extends Lesson {
 
     @ManyToMany
     @JoinTable(
-            name = "PERSISTENCE_LESSON_RIVER_STUDENT",
+            name = "PERSISTENCE_LESSON_RIVER_TEACHER",
             joinColumns = @JoinColumn(name = "LESSON_RIVER_LIST_ID", referencedColumnName = "ID"),
-            inverseJoinColumns = @JoinColumn(name = "STUDENT_ID", referencedColumnName = "ID")
+            inverseJoinColumns = @JoinColumn(name = "TEACHER_ID", referencedColumnName = "ID")
     )
     private List<Teacher> teacherList = new ArrayList<>();
 
