@@ -7,6 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,4 +30,7 @@ public class Teacher extends BaseEntity {
 
     @ManyToMany(mappedBy = "teacherList")
     private List<LessonBootcamp> lessonBootcampList = new ArrayList<>();
+
+    @OneToOne
+    private User user;
 }
