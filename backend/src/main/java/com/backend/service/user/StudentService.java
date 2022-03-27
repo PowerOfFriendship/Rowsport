@@ -26,7 +26,7 @@ public class StudentService {
         return student;
     }
 
-    private void addPrepaidLessonsToStudent(Long studentId, int numberOfLessons) {
+    public void addPrepaidLessonsToStudent(Long studentId, int numberOfLessons) {
 
         Student student = studentRepository.getById(studentId);
         student.setPrepaidLessons(student.getPrepaidLessons() + numberOfLessons);
