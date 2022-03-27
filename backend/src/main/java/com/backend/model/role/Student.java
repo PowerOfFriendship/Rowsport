@@ -2,6 +2,7 @@ package com.backend.model.role;
 
 import com.backend.model.*;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -14,14 +15,17 @@ import java.util.List;
 
 @Entity
 @Getter @Setter
+@RequiredArgsConstructor
 public class Student extends BaseEntity {
+
+    private final int ratingQuotient = 20;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
 
     private int prepaidLessons;
     private int lifetimeTotalLessons;
-    private int rating;
+    private int ratingAccountableLessons;
 
     @ManyToMany(mappedBy = "studentList")
     private List<LessonRiver> lessonRiverList = new ArrayList<>();
@@ -37,5 +41,10 @@ public class Student extends BaseEntity {
 
     @OneToOne
     private User user;
+
+    public int getRating() {
+        return this.ratingAccountableLessons / ratingQuotient;
+    }
+
 
 }
