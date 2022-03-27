@@ -23,5 +23,4 @@ public class UserRegistrationController {
         return ResponseEntity.status(HttpStatus.OK).body(status);
     }
 
-
 }

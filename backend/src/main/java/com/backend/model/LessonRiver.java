@@ -6,10 +6,7 @@ import com.backend.model.role.Teacher;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +24,7 @@ public class LessonRiver extends Lesson {
     private int quadScullEnrolled;
     private int eightEnrolled;
 
-    @ManyToMany
+    @ManyToMany(targetEntity = Student.class, fetch = FetchType.LAZY)
     @JoinTable(
             name = "PERSISTENCE_LESSON_RIVER_STUDENT",
             joinColumns = @JoinColumn(name = "LESSON_RIVER_LIST_ID", referencedColumnName = "ID"),
@@ -35,7 +32,7 @@ public class LessonRiver extends Lesson {
     )
     private List<Student> studentList = new ArrayList<>();
 
-    @ManyToMany
+    @ManyToMany(targetEntity = Teacher.class, fetch = FetchType.LAZY)
     @JoinTable(
             name = "PERSISTENCE_LESSON_RIVER_TEACHER",
             joinColumns = @JoinColumn(name = "LESSON_RIVER_LIST_ID", referencedColumnName = "ID"),
