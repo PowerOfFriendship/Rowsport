@@ -5,6 +5,7 @@ import com.backend.exception.registration.InvalidEmailFormatException;
 import com.backend.exception.registration.PasswordTooShortException;
 import com.backend.exception.registration.UsernameOrEmailNotUnique;
 import com.backend.model.User;
+import com.backend.repository.StudentRepository;
 import com.backend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -19,6 +20,7 @@ import java.util.regex.Pattern;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final StudentRepository studentRepository;
 
     private Boolean checkPasswordLength(String password) {
         return password.length() >= 8;
@@ -77,5 +79,13 @@ public class UserService {
         userRepository.save(user);
         return user;
     }
+
+    public User getUserById(Long userId) {
+        return userRepository.getById(userId);
+    }
+
+//    public User getUserByStudentId(Long studentId) {
+//        return userRepository.getById(studentRepository.getById(studentId).getUser().getId());
+//    }
 
 }

@@ -29,17 +29,26 @@ public class CatchingExceptions {
 
     @ExceptionHandler(InvalidEmailFormatException.class)
     public static ResponseEntity<ErrorDTO> invalidEmailFormat() {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorDTO("Incorrect email format!"));
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(new ErrorDTO("Incorrect email format!"));
     }
 
     @ExceptionHandler(PasswordTooShortException.class)
     public static ResponseEntity<ErrorDTO> passwordTooShort() {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorDTO("Incorrect password format!"));
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(new ErrorDTO("Incorrect password format!"));
     }
 
     @ExceptionHandler(UsernameOrEmailNotUnique.class)
     public static ResponseEntity<MultipleErrorsDTO> usernameAndEmailAlreadyExists(UsernameOrEmailNotUnique e) {
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new MultipleErrorsDTO("error", e.getMessages()));
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(new MultipleErrorsDTO("error", e.getMessages()));
+    }
+
+    @ExceptionHandler(NoStudentLinkedToUserException.class)
+    public static ResponseEntity<ErrorDTO> noStudentLinkedToUser() {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(new ErrorDTO("There is no student linked to this user."));
     }
 
 }
