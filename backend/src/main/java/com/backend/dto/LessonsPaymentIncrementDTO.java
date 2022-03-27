@@ -5,5 +5,5 @@ import lombok.Setter;
 
 @Getter @Setter
 public class LessonsPaymentIncrementDTO {
-    private int numberOfLessons;
+    private int amountOfMoney;
 }

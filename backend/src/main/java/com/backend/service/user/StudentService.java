@@ -1,8 +1,10 @@
 package com.backend.service.user;
 
+import com.backend.dto.LessonsPaymentIncrementDTO;
 import com.backend.dto.user.StudentDTO;
 import com.backend.dto.user.UserRegistrationDTO;
 import com.backend.exception.NoStudentLinkedToUserException;
+import com.backend.model.BaseValues;
 import com.backend.model.User;
 import com.backend.model.role.Student;
 import com.backend.repository.StudentRepository;
@@ -26,12 +28,40 @@ public class StudentService {
         return student;
     }
 
-    public void addPrepaidLessonsToStudent(Long studentId, int numberOfLessons) {
-
+    public void addPrepaidLessonsToStudent(Long studentId, LessonsPaymentIncrementDTO lessonsPaymentIncrementDTO) {
         Student student = studentRepository.getById(studentId);
-        student.setPrepaidLessons(student.getPrepaidLessons() + numberOfLessons);
+        student.setPrepaidAmount(student.getPrepaidAmount() + lessonsPaymentIncrementDTO.getAmountOfMoney());
         studentRepository.save(student);
+    }
 
+    public void userDecreasePrepaidAmount(Long studentId, String lessonType) {
+        Student student = studentRepository.getById(studentId);
+        switch(lessonType) {
+            case "river":
+                student.setPrepaidAmount(student.getPrepaidAmount() - BaseValues.lessonRiverFee );
+                break;
+            case "indoorErg":
+                student.setPrepaidAmount(student.getPrepaidAmount() - BaseValues.lessonIndoorErgFee);
+                break;
+            case "indoorPool":
+                student.setPrepaidAmount(student.getPrepaidAmount() - BaseValues.lessonIndoorPoolFee);
+        }
+        studentRepository.save(student);
+    }
+
+    public void userIncreasePrepaidAmount(Long studentId, String lessonType) {
+        Student student = studentRepository.getById(studentId);
+        switch(lessonType) {
+            case "river":
+                student.setPrepaidAmount(student.getPrepaidAmount() + BaseValues.lessonRiverFee );
+                break;
+            case "indoorErg":
+                student.setPrepaidAmount(student.getPrepaidAmount() + BaseValues.lessonIndoorErgFee);
+                break;
+            case "indoorPool":
+                student.setPrepaidAmount(student.getPrepaidAmount() + BaseValues.lessonIndoorPoolFee);
+        }
+        studentRepository.save(student);
     }
 
     public Student getStudentByUserId(Long userId) {
@@ -50,7 +80,7 @@ public class StudentService {
             User user = s.getUser();
 
             studentDTO.setCreatedAt(s.getCreatedAt());
-            studentDTO.setPrepaidLessons(s.getPrepaidLessons());
+            studentDTO.setPrepaidAmount(s.getPrepaidAmount());
             studentDTO.setLifetimeTotalLessons(s.getLifetimeTotalLessons());
             studentDTO.setRatingAccountableLessons(s.getRatingAccountableLessons());
             studentDTO.setRating(s.getRating());

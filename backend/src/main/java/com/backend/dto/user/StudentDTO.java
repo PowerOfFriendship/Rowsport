@@ -10,7 +10,7 @@ public class StudentDTO {
 
     private LocalDateTime createdAt;
 
-    private int prepaidLessons;
+    private int prepaidAmount;
     private int lifetimeTotalLessons;
     private int ratingAccountableLessons;
     private int rating;

@@ -25,7 +25,8 @@ public class Student extends BaseEntity {
     @CreationTimestamp
     private LocalDateTime createdAt;
 
-    private int prepaidLessons;
+    private int prepaidAmount;
+
     private int lifetimeTotalLessons;
     private int ratingAccountableLessons;
 
