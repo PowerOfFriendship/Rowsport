@@ -22,7 +22,7 @@ public class StudentInteractionController {
 
     @PatchMapping("/student/{studentId}")
     public ResponseEntity<Object> updateStudentPrepaidLessons(@PathVariable Long studentId, @RequestBody LessonsPaymentIncrementDTO lessonsIncrementDTO) {
-        studentService.addPrepaidLessonsToStudent(studentId, lessonsIncrementDTO);
+        studentService.addPrepaymentToStudent(studentId, lessonsIncrementDTO);
         return ResponseEntity.ok("ok");
     }
 

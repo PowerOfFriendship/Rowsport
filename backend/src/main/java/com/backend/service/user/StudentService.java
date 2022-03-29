@@ -28,13 +28,13 @@ public class StudentService {
         return student;
     }
 
-    public void addPrepaidLessonsToStudent(Long studentId, LessonsPaymentIncrementDTO lessonsPaymentIncrementDTO) {
+    public void addPrepaymentToStudent(Long studentId, LessonsPaymentIncrementDTO lessonsPaymentIncrementDTO) {
         Student student = studentRepository.getById(studentId);
         student.setPrepaidAmount(student.getPrepaidAmount() + lessonsPaymentIncrementDTO.getAmountOfMoney());
         studentRepository.save(student);
     }
 
-    public void userDecreasePrepaidAmount(Long studentId, String lessonType) {
+    public void studentDecreasePrepaidAmount(Long studentId, String lessonType) {
         Student student = studentRepository.getById(studentId);
         switch(lessonType) {
             case "river":
@@ -49,7 +49,7 @@ public class StudentService {
         studentRepository.save(student);
     }
 
-    public void userIncreasePrepaidAmount(Long studentId, String lessonType) {
+    public void studentIncreasePrepaidAmount(Long studentId, String lessonType) {
         Student student = studentRepository.getById(studentId);
         switch(lessonType) {
             case "river":
