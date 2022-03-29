@@ -8,11 +8,10 @@ import java.time.LocalDateTime;
 
 @MappedSuperclass
 @Getter @Setter
-public abstract class Lesson extends BaseEntity{
+public class Lesson extends BaseEntity{
 
     protected int capacityMax;
     protected LocalDateTime dateTimeStart;
     protected LocalDateTime dateTimeEnd;
-
 
 }

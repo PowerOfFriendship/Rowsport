@@ -22,10 +22,14 @@ public class StudentService {
     private final StudentRepository studentRepository;
     private final UserService userService;
 
-    private Student saveStudent(UserRegistrationDTO userDTO) {
+    public Student addNewStudent(UserRegistrationDTO userDTO) {
         Student student = new Student();
         studentRepository.save(student);
         return student;
+    }
+
+    public void saveStudent(Student student) {
+        studentRepository.save(student);
     }
 
     public void addPrepaymentToStudent(Long studentId, LessonsPaymentIncrementDTO lessonsPaymentIncrementDTO) {
