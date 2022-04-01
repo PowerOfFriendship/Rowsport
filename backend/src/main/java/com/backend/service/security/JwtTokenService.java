@@ -12,6 +12,8 @@ import java.security.Key;
 import java.util.Base64;
 import java.util.Date;
 
+// TODO: 30.3.2022 REMOVE THIS FILE AFTER DONE
+
 @Service
 public class JwtTokenService {
 
@@ -19,7 +21,7 @@ public class JwtTokenService {
     private String secret;
 
     public String generateToken(String projectName, String username, Long id) {
-        String jws = Jwts.builder()
+        return Jwts.builder()
                 .setIssuer(projectName)
                 .setSubject(username)
                 .claim("id", id)
@@ -32,7 +34,6 @@ public class JwtTokenService {
                         SignatureAlgorithm.HS256
                 )
                 .compact();
-        return jws;
     }
 
     public Jws<Claims> parseJwt(String jwtString) throws JwtException {

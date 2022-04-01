@@ -8,6 +8,8 @@ import com.backend.model.User;
 import com.backend.repository.StudentRepository;
 import com.backend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
@@ -82,6 +84,11 @@ public class UserService {
 
     public User getUserById(Long userId) {
         return userRepository.getById(userId);
+    }
+
+    public Long getIdFromAuthentication() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return (Long) auth.getPrincipal();
     }
 
 //    public User getUserByStudentId(Long studentId) {

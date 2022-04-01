@@ -5,11 +5,13 @@ import com.backend.model.role.Teacher;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter @Setter
+@Table(name = "users")
 public class User extends BaseEntity {
 
     private String username;
@@ -19,9 +21,7 @@ public class User extends BaseEntity {
 
     private String email;
     private String password;
-
-    private boolean isAdmin = false;
-    private boolean isSuperadmin = false;
+    private boolean enabled;
 
     @OneToOne
     private Student student;
@@ -29,5 +29,12 @@ public class User extends BaseEntity {
     @OneToOne
     private Teacher teacher;
 
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Set<Role> roles = new HashSet<>();
 }
 
