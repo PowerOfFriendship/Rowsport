@@ -4,15 +4,14 @@ package com.backend.service.security;
 import com.backend.model.MyUserPrincipal;
 import com.backend.model.User;
 import com.backend.service.security.configuration.AuthenticationService;
-import io.jsonwebtoken.*;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
-import javax.crypto.spec.SecretKeySpec;
-import java.security.Key;
-import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -50,17 +49,6 @@ public class JwtTokenService {
                 .setExpiration(expiration)
                 .signWith(SignatureAlgorithm.HS256, secret)
                 .compact();
-    }
-
-    public Jws<Claims> parseJwt(String jwtString) throws JwtException {
-
-        Key hmacKey = new SecretKeySpec(Base64.getDecoder().decode(secret),
-                SignatureAlgorithm.HS256.getJcaName());
-
-        return Jwts.parserBuilder()
-                .setSigningKey(hmacKey)
-                .build()
-                .parseClaimsJws(jwtString);
     }
 
     public String extractUsername(String token) {

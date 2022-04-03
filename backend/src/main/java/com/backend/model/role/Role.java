@@ -2,6 +2,7 @@ package com.backend.model.role;
 
 import com.backend.model.BaseEntity;
 import com.backend.model.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +18,7 @@ public class Role extends BaseEntity {
     private String description;
 
     @ManyToMany(mappedBy = "roles")
+    @JsonIgnore
     private Set<User> userList;
 
 }
