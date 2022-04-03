@@ -39,9 +39,12 @@ public class JwtTokenService {
 
     private String createToken(Map<String, Object> claims, UserDetails userDetails) {
 
+        // TODO: 3.4.2022 change the expiration from hardcoded to dynamic?
         Date date = new Date(System.currentTimeMillis());
         Date expiration = new Date(System.currentTimeMillis() + 1200 * 1000);
 
+
+        // TODO: 3.4.2022 what's wrong with .signWith? I should change this
         return Jwts.builder()
                 .setSubject(userDetails.getUsername())
                 .setClaims(claims)
