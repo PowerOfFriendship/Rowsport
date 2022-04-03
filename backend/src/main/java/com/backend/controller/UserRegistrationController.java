@@ -18,7 +18,7 @@ public class UserRegistrationController {
 
     @PostMapping("/registration")
     public ResponseEntity<Object> userRegistration(@RequestBody UserRegistrationDTO userRegistrationDTO) throws RuntimeException {
-        userService.addUser(userRegistrationDTO);
+        userService.addNewUser(userRegistrationDTO);
         StatusDTO status = new StatusDTO("ok");
         return ResponseEntity.status(HttpStatus.OK).body(status);
     }

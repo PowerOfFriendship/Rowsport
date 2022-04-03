@@ -90,8 +90,6 @@ public class StudentService {
             studentDTO.setSurname(user.getSurname());
             studentDTO.setTelephone(user.getTelephone());
             studentDTO.setEmail(user.getEmail());
-            studentDTO.setAdmin(user.isAdmin());
-            studentDTO.setSuperadmin(user.isSuperadmin());
 
             studentDTOList.add(studentDTO);
         }

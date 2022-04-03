@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,16 +19,16 @@ public class Teacher extends BaseEntity {
     private LocalDateTime createdAt;
 
     @ManyToMany(mappedBy = "teacherList")
-    private List<LessonRiver> lessonRiverList = new ArrayList<>();
+    private List<LessonRiver> lessonRiverList;
 
     @ManyToMany(mappedBy = "teacherList")
-    private List<LessonIndoorErg> lessonIndoorErgList = new ArrayList<>();
+    private List<LessonIndoorErg> lessonIndoorErgList;
 
     @ManyToMany(mappedBy = "teacherList")
-    private List<LessonIndoorPool> lessonIndoorPoolList = new ArrayList<>();
+    private List<LessonIndoorPool> lessonIndoorPoolList;
 
     @ManyToMany(mappedBy = "teacherList")
-    private List<LessonBootcamp> lessonBootcampList = new ArrayList<>();
+    private List<LessonBootcamp> lessonBootcampList;
 
     @OneToOne
     private User user;

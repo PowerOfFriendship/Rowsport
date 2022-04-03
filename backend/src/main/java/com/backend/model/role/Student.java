@@ -11,7 +11,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -31,16 +30,16 @@ public class Student extends BaseEntity {
     private int ratingAccountableLessons;
 
     @ManyToMany(mappedBy = "studentList")
-    private List<LessonRiver> lessonRiverList = new ArrayList<>();
+    private List<LessonRiver> lessonRiverList;
 
     @ManyToMany(mappedBy = "studentList")
-    private List<LessonIndoorErg> lessonIndoorErgList = new ArrayList<>();
+    private List<LessonIndoorErg> lessonIndoorErgList;
 
     @ManyToMany(mappedBy = "studentList")
-    private List<LessonIndoorPool> lessonIndoorPoolList = new ArrayList<>();
+    private List<LessonIndoorPool> lessonIndoorPoolList;
 
     @ManyToMany(mappedBy = "studentList")
-    private List<LessonBootcamp> lessonBootcampList = new ArrayList<>();
+    private List<LessonBootcamp> lessonBootcampList;
 
     @OneToOne
     private User user;

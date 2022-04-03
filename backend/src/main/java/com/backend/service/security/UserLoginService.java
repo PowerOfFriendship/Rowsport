@@ -1,14 +1,16 @@
-package com.backend.service.user;
+package com.backend.service.security;
 
-import com.backend.dto.SuccessfulLoginDTO;
-import com.backend.dto.user.UserLoginDataDTO;
+import com.backend.dto.user.UserLoginRequestDTO;
 import com.backend.exception.login.InvalidCredentialsException;
 import com.backend.exception.login.UserCredentialsEmptyException;
 import com.backend.exception.registration.PasswordTooShortException;
 import com.backend.model.User;
 import com.backend.repository.UserRepository;
-import com.backend.service.security.JwtTokenService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
@@ -16,12 +18,14 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class LoginService {
+public class UserLoginService {
 
     private final UserRepository userRepository;
     private final JwtTokenService jwtTokenService;
+    private final AuthenticationManager authenticationManager;
+    private final UserDetailsService userDetailsService;
 
-    public boolean checkLoginCredentials(UserLoginDataDTO loginData) {
+    public boolean checkLoginCredentials(UserLoginRequestDTO loginData) {
         if (loginData.getUsername() == null || loginData.getPassword() == null || loginData.getUsername().isBlank() ||
                 loginData.getPassword().isBlank()) {
             throw new UserCredentialsEmptyException();
@@ -39,14 +43,12 @@ public class LoginService {
         }
     }
 
-    public SuccessfulLoginDTO login(UserLoginDataDTO loginData) {
+    public String login(UserLoginRequestDTO loginData) {
 
         if (checkLoginCredentials(loginData)) {
-            User user = userRepository.findByUsername(loginData.getUsername()).orElseThrow(() ->
-                    new InvalidCredentialsException("Username and/or password was incorrect!"));
-
-            String token = jwtTokenService.generateToken("Project", user.getUsername(), user.getId());
-            return new SuccessfulLoginDTO("ok", token);
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginData.getUsername(), loginData.getPassword()));
+            final UserDetails userDetails = userDetailsService.loadUserByUsername(loginData.getUsername());
+            return jwtTokenService.generateToken(userDetails);
         }
         throw new InvalidCredentialsException("Username and/or password was incorrect!");
     }

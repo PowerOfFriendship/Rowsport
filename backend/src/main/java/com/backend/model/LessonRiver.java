@@ -6,8 +6,10 @@ import com.backend.model.role.Teacher;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
-import java.util.ArrayList;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import java.util.List;
 
 @Entity
@@ -30,7 +32,7 @@ public class LessonRiver extends Lesson {
             joinColumns = @JoinColumn(name = "LESSON_RIVER_LIST_ID", referencedColumnName = "ID"),
             inverseJoinColumns = @JoinColumn(name = "STUDENT_ID", referencedColumnName = "ID")
     )
-    private List<Student> studentList = new ArrayList<>();
+    private List<Student> studentList;
 
     @ManyToMany
     @JoinTable(
@@ -38,6 +40,6 @@ public class LessonRiver extends Lesson {
             joinColumns = @JoinColumn(name = "LESSON_RIVER_LIST_ID", referencedColumnName = "ID"),
             inverseJoinColumns = @JoinColumn(name = "TEACHER_ID", referencedColumnName = "ID")
     )
-    private List<Teacher> teacherList = new ArrayList<>();
+    private List<Teacher> teacherList;
 
 }
