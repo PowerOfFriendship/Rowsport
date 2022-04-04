@@ -1,5 +1,6 @@
-# Rowsport Reservation System - Backend
+# Rowsport Reservation System - Backend - work in progress
 
+## Main and planned features
 
 
 **Logic and roles** - *authorization of each role is governed through **Spring Security Roles***
