@@ -1,4 +1,4 @@
-# Rowsport Reservation System
+# Rowsport Reservation System - UNDER CONSTRUCTION
 ## Main goal
 
 This program shall serve as a reservation system for sports courses via web-browser interface. It will contain various types of courses and enable the users to sign up to a course according to their skill level. The skill levels will be tracked automatically based on internal logic (amount of courses passed, value can be overridden by Administrator). Signup will be matched with the users' available prepaid credit, which will be subtracted from the users' accounts automatically on a preset time (to prevent signing off from the selected course on too short notice - e.g. 20 hours before the time the course takes place). The lessons will be tracked in a persisted calendar (not implemented yet, work in progress).
