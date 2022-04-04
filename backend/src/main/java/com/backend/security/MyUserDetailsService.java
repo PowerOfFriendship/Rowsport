@@ -1,4 +1,4 @@
-package com.backend.service.security;
+package com.backend.security;
 
 import com.backend.exception.UserNotFoundException;
 import com.backend.model.MyUserPrincipal;

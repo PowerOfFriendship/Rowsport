@@ -1,4 +1,4 @@
-package com.backend.service.security;
+package com.backend.security;
 
 import com.backend.dto.user.UserLoginRequestDTO;
 import com.backend.exception.login.InvalidCredentialsException;

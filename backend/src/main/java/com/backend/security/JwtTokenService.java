@@ -1,9 +1,9 @@
-package com.backend.service.security;
+package com.backend.security;
 
 
 import com.backend.model.MyUserPrincipal;
 import com.backend.model.User;
-import com.backend.service.security.configuration.AuthenticationService;
+import com.backend.security.configuration.AuthenticationService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

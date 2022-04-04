@@ -1,4 +1,4 @@
-package com.backend.service.security.configuration;
+package com.backend.security.configuration;
 
 import com.backend.model.User;
 import lombok.RequiredArgsConstructor;
