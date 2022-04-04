@@ -5,8 +5,9 @@
 
 **Logic and roles** - *authorization of each role is governed through **Spring Security Roles***
 
-- **User** (everybody after registering); each User can be assigned roles, the .
+- **User** (everybody after registering); each User can be assigned roles.
 
+***The roles***
 - **Student** (can apply for courses and view their trackrecord; is automatically assigned to User upon registration through the public /registration endpoint)
 - **Teacher** (is assigned to courses by Admin)
 - **Admin** (can add credit to Student, assign or remove Student to/from a Course, create and remove new Course in the calendar, assign role of Teacher to User)
