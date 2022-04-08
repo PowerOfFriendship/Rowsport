@@ -1,4 +1,4 @@
-package com.backend.service.security;
+package com.backend.security;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;

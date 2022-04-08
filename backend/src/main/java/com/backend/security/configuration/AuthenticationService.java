@@ -1,7 +1,7 @@
-package com.backend.service.security.configuration;
+package com.backend.security.configuration;
 
 import com.backend.model.User;
-import com.backend.service.security.JwtTokenService;
+import com.backend.security.JwtTokenService;
 import com.backend.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

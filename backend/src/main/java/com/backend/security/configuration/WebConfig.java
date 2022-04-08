@@ -1,4 +1,4 @@
-package com.backend.service.security.configuration;
+package com.backend.security.configuration;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;

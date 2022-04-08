@@ -5,7 +5,7 @@ import com.backend.dto.user.UserLoginResponseDTO;
 import com.backend.exception.login.InvalidCredentialsException;
 import com.backend.exception.login.UserCredentialsEmptyException;
 import com.backend.exception.registration.PasswordTooShortException;
-import com.backend.service.security.UserLoginService;
+import com.backend.security.UserLoginService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

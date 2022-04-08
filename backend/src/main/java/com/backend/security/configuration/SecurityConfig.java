@@ -1,7 +1,7 @@
-package com.backend.service.security.configuration;
+package com.backend.security.configuration;
 
-import com.backend.service.security.JwtTokenFilter;
-import com.backend.service.security.MyUserDetailsService;
+import com.backend.security.JwtTokenFilter;
+import com.backend.security.MyUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
