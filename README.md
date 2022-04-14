@@ -9,7 +9,7 @@ The whole project is work in progress being done by a junior Java developer, so 
 
 **Logic and roles** - *authorization of each role is governed through **Spring Security Roles***
 
-- **User** (everybody after registering); each User can be assigned roles, the .
+- **User** (everybody after registering); each User can be assigned roles.
 
 - **Student** (can apply for courses and view their trackrecord; is automatically assigned to User upon registration through the public /registration endpoint)
 - **Teacher** (is assigned to courses by Admin)
